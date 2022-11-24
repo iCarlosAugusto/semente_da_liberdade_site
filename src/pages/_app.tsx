@@ -1,12 +1,14 @@
-import { Box, ButtonGroup, ChakraProvider, Flex, HStack, Link, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Stack, VStack } from '@chakra-ui/react'
+import { Box, ChakraProvider, ColorModeScript, Flex, Link, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Stack, VStack } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
 import { Button } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 import { FaFacebook, FaLinkedin, FaInstagram, FaDiscord } from 'react-icons/fa';
+import theme from "../styles/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
       <Flex w='100%' bg={'red.50'} paddingLeft={8} paddingRight={8} justifyContent={'space-between'} align={'center'}>
         <Stack direction={'row'} align={'center'} spacing={20}>
           <Image

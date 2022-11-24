@@ -1,9 +1,11 @@
-import { Box, Button, Flex, Text, ButtonGroup } from '@chakra-ui/react'
+import { Box, Button, Flex, Text, ButtonGroup, useColorMode } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 import Link from 'next/link'
 import { TextComponent } from '../components/Text'
 
 export default function Home() {
+
+  const { colorMode, toggleColorMode } = useColorMode()
   return (
     <div>
       <Box paddingLeft={8} paddingRight={8}>
@@ -18,6 +20,9 @@ export default function Home() {
             Saiba mais
           </Button>
         </Box>
+        <Button onClick={toggleColorMode}>
+          Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+        </Button>
 
 
 
@@ -75,13 +80,16 @@ export default function Home() {
           </Text>
 
 
-            <Button marginTop={16}>
-              Estou interessado!
-            </Button>
-
-    
-            
+          <Button marginTop={16}>
+            Estou interessado!
+          </Button>
         </Flex>
+      </Box>
+
+      <Box w={'100%'} bg='black' padding={20} alignItems='start'>
+        <TextComponent text='Semente da liberdade' color='white' fontSize='3xl' />
+
+        <TextComponent text='fodase o estado' color='white' fontSize='xl' marginTop={8} />
       </Box>
     </div>
   )
