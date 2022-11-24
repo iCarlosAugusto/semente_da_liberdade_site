@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Text, ButtonGroup } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
+import Link from 'next/link'
 import { TextComponent } from '../components/Text'
 
 export default function Home() {
@@ -7,6 +8,8 @@ export default function Home() {
     <div>
       <Box paddingLeft={8} paddingRight={8}>
         <Box marginTop={32}>
+
+          <Link href={'/register'}>Register</Link>
           <Text fontSize='5xl'>Semente da liberdade, grupo que luta contra o estado</Text>
           <Text fontSize='xl' marginTop={2}>Somos um grupo de estudantes que luta a favor de liberdade para as pessoas</Text>
           <Text>Com sede no estado de SP na cidade de São Carlos</Text>
@@ -76,7 +79,8 @@ export default function Home() {
               Estou interessado!
             </Button>
 
-            <TextComponent text='TESTEEEEEEEEEEEEEE' fontSize='5xl'/>
+    
+            
         </Flex>
       </Box>
     </div>
