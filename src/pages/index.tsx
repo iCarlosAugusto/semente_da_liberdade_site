@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Text, ButtonGroup } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
-import { TextComponent } from './components/Text'
+import { TextComponent } from '../components/Text'
 
 export default function Home() {
   return (

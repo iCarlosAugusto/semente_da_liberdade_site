@@ -1,8 +1,6 @@
-import '../styles/globals.css'
-import { Box, ChakraProvider, Container, Flex, Link, Stack } from '@chakra-ui/react'
+import { Box, ChakraProvider, Flex, Link, Stack } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
-import { Text } from '@chakra-ui/react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 
 export default function App({ Component, pageProps }: AppProps) {
