@@ -12,12 +12,21 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BsPercent } from 'react-icons/bs';
 import { GoPlus } from 'react-icons/go'
+import ReactGA from 'react-ga';
+import { useEffect } from 'react'
 
 export default function Home() {
 
   const { colorMode, toggleColorMode } = useColorMode();
 
 
+  useEffect(() => {
+    ReactGA.initialize('G-TJL9CLR9VR');
+
+    ReactGA.pageview('/')
+  }, []);
+
+  
   const handleOpenSubscriptionForm = () => {
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSfyAzW3QPZTm2VTnR-CES03SBV-K5c8GnCwcVX2Wcpgz9Xhag/viewform");
   };
@@ -122,7 +131,13 @@ export default function Home() {
             Lorem ipsum is placeholder text commonly used in the graphic,<br /> print, and publishing industries for previewing layouts and visual mockups.
           </Text>
 
-          <ButtonComponent value='Estou interessado!' onClick={() => console.log('Estou interessado!')} marginTop={16} />
+          <ButtonComponent value='Estou interessado!' onClick={() => ReactGA.event({
+            category: 'Links',
+            action: 'GitHub',
+            label: 'GitHub button clicked!',
+            value: 1
+          })}
+            marginTop={16} />
         </Flex>
 
 
