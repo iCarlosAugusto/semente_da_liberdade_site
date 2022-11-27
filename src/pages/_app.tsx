@@ -1,9 +1,10 @@
-import { Box, ChakraProvider, ColorModeScript, Flex, Link, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Stack, VStack } from '@chakra-ui/react'
+import { Box, ChakraProvider, ColorModeScript, Flex, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Stack, VStack } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
 import { Button } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 import { FaFacebook, FaLinkedin, FaInstagram, FaDiscord } from 'react-icons/fa';
 import theme from "../styles/theme";
+import Link from 'next/link'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,18 +18,18 @@ export default function App({ Component, pageProps }: AppProps) {
             src='https://camo.githubusercontent.com/5c9a8022c5b6a9c7204ca285ea50af4c47b62b64ea601b25f01367ca9227369b/68747470733a2f2f7777772e73656d656e746564616c69626572646164652e636f6d2e62722f696d616765732f53444c2d30352e706e67'
             alt='Semente logo'
           />
-          <Link>
+          <Link href={'/'}>
             Sobre
           </Link>
-          <Link>
+          <Link href={'/'}>
             Quem somos
           </Link>
 
-          <Link>
+          <Link href='/contato'>
             Contato
           </Link>
 
-          <Link>
+          <Link href={'/'}>
             Inscreva-se
           </Link>
 

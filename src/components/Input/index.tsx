@@ -8,11 +8,12 @@ interface InputComponentProps {
     marginLeft?: number,
     marginRight?: number,
     padding?: number,
+    variant?: 'outline' | 'flushed'
 };
 
 function InputComponent({ ...props }: InputComponentProps) {
     return (
-        <InputChakra {...props}/>
+        <InputChakra {...props} />
     );
 }
 
