@@ -21,7 +21,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    ReactGA.initialize('G-TJL9CLR9VR');
+    ReactGA.initialize('G-S807Z68LMF');
 
     ReactGA.pageview('/')
   }, []);
