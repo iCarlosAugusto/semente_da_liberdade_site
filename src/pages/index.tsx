@@ -91,7 +91,7 @@ export default function Home() {
 
           <Flex w={'100%'} flexDir='row' paddingTop={16} justifyContent='space-evenly'>
             <Flex flexDir={'row'} alignItems='center'>
-              <TextComponent text='800' fontWeight='bold' fontSize='6xl' />
+              <TextComponent text='200' fontWeight='bold' fontSize='6xl' />
               <Icon as={GoPlus} w={10} h={10} color='#FFCB14' />
               <TextComponent text=' faculdades atentidas' fontSize='3xl' />
             </Flex>
