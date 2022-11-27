@@ -8,6 +8,8 @@ interface ButtonComponentProps {
     marginLeft?: number,
     marginRight?: number,
     padding?: number,
+    variant?: "solid" | "outline" | "link"
+    onClick?: () => void,
 };
 
 function ButtonComponent({ value, ...props }: ButtonComponentProps) {

@@ -5,6 +5,12 @@ const config: ThemeConfig = {
   useSystemColorMode: false,
 }
 
-const theme = extendTheme({ config })
+const colors = {
+  primary: '#1bffbf',
+  danger: '#E53E3E',
+  white: '#ffffff',
+}
+
+const theme = extendTheme({ config, colors })
 
 export default theme

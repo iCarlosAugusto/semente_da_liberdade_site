@@ -1,48 +1,74 @@
-import { Box, Button, Flex, Text, ButtonGroup, useColorMode } from '@chakra-ui/react'
+import { Box, Button, Flex, Text, ButtonGroup, useColorMode, Switch, Stack, theme } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 import Link from 'next/link'
+import { ButtonComponent } from '../components/Button'
 import { TextComponent } from '../components/Text'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
 
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { colorMode, toggleColorMode } = useColorMode();
+
+
+  const handleOpenSubscriptionForm = () => {
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfyAzW3QPZTm2VTnR-CES03SBV-K5c8GnCwcVX2Wcpgz9Xhag/viewform");
+  };
+
+  var settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true
+  };
+
   return (
-    <div>
+    <Box>
+
+
+      <Stack direction='row'>
+        <Switch colorScheme='teal' size='lg' onChange={toggleColorMode} />
+      </Stack>
       <Box paddingLeft={8} paddingRight={8}>
+
         <Box marginTop={32}>
 
           <Link href={'/register'}>Register</Link>
-          <Text fontSize='5xl'>Semente da liberdade, grupo que luta contra o estado</Text>
-          <Text fontSize='xl' marginTop={2}>Somos um grupo de estudantes que luta a favor de liberdade para as pessoas</Text>
-          <Text>Com sede no estado de SP na cidade de São Carlos</Text>
-
-          <Button marginTop={16}>
-            Saiba mais
-          </Button>
+          <TextComponent text='Semente da liberdade, grupo que luta contra o estado' fontSize='5xl' />
+          <TextComponent text='Somos um grupo de estudantes que luta a favor de liberdade para as pessoas' fontSize='xl' marginTop={2} />
+          <TextComponent text='Com sede no estado de SP na cidade de São Carlos' />
+          <ButtonComponent value='Saiba mais' marginTop={16} />
         </Box>
-        <Button onClick={toggleColorMode}>
-          Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
-        </Button>
+
+
 
 
 
         <Flex w={'100%'} marginTop={36} justifyContent='space-between' alignItems={'center'}>
 
           <Box >
-            <Text>
-              Quem somos?
-            </Text>
+            <TextComponent color='primary' text='Quem somos?' />
 
-            <Text as='b' fontSize='3xl'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            </Text>
+            <TextComponent text='Lorem ipsum dolor sit amet, consectetur adipiscing elit' fontSize='3xl' />
 
-            <Text marginTop={6}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />
+            <TextComponent text='Lorem ipsum dolor sit amet, consectetur adipiscing elit' fontSize='3xl' />
+            <TextComponent
+              marginTop={6}
+              text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br />
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br />
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Text>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+            />
 
           </Box>
 
@@ -54,22 +80,34 @@ export default function Home() {
           />
         </Flex>
 
-
-        <Flex marginTop={32} alignItems='center' alignContent={'center'} justifyItems={'center'} justifyContent='center' flexDirection={'column'}>
-          <Text fontSize='5xl' align={'center'}>
-            Oque fazemos?
-          </Text>
-          <Text align={'center'} fontSize='3xl'>
-            Lorem ipsum is placeholder text commonly used in the graphic,<br /> print, and publishing industries for previewing layouts and visual mockups.
-          </Text>
+        <Flex marginTop={32} marginBottom={32} alignItems='center' alignContent={'center'} justifyItems={'center'} justifyContent='center' flexDirection={'column'}>
+          <TextComponent text="Oque fazemos?" fontSize='5xl' />
+          <TextComponent text="Lorem ipsum is placeholder text commonly used in the graphic,<br /> print, and publishing industries for previewing layouts and visual mockups." fontSize='3xl' />
 
           <ButtonGroup alignContent={'center'} alignSelf={'center'} marginTop={16}>
-            <Button>
-              Quero ajudar!
-            </Button>
-            <Button> Quero doar para o projeto</Button>
+            <ButtonComponent value='Quero ajudar' onClick={() => handleOpenSubscriptionForm()} />
+
+            <ButtonComponent value='Doar para o projeto' onClick={() => console.log("DOANDO!")} />
           </ButtonGroup>
         </Flex>
+
+        <Slider {...settings} arrows={true}>
+          <Box width={400} height={400} backgroundColor='blue'>
+
+          </Box>
+
+          <Box width={400} height={400} backgroundColor='red'>
+
+          </Box>
+
+          <Box width={400} height={400} backgroundColor='yellow'>
+
+          </Box>
+
+          <Box width={400} height={400} backgroundColor='brown'>
+
+          </Box>
+        </Slider>
 
         <Flex marginTop={32} marginBottom={32} alignItems='center' alignContent={'center'} justifyItems={'center'} justifyContent='center' flexDirection={'column'}>
           <Text fontSize='5xl' align={'center'}>
@@ -79,10 +117,7 @@ export default function Home() {
             Lorem ipsum is placeholder text commonly used in the graphic,<br /> print, and publishing industries for previewing layouts and visual mockups.
           </Text>
 
-
-          <Button marginTop={16}>
-            Estou interessado!
-          </Button>
+          <ButtonComponent value='Estou interessado!' onClick={() => console.log('Estou interessado!')} marginTop={16} />
         </Flex>
       </Box>
 
@@ -91,6 +126,6 @@ export default function Home() {
 
         <TextComponent text='fodase o estado' color='white' fontSize='xl' marginTop={8} />
       </Box>
-    </div>
+    </Box>
   )
 }
