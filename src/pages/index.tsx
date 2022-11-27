@@ -1,17 +1,17 @@
-import { Box, Button, Flex, Text, ButtonGroup, useColorMode, Switch, Stack, theme } from '@chakra-ui/react'
+import { Box, Flex, Text, ButtonGroup, useColorMode, Switch, Stack, Icon } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 import Link from 'next/link'
 import { ButtonComponent } from '../components/Button'
 import { TextComponent } from '../components/Text'
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { BsPercent } from 'react-icons/bs';
+import { GoPlus } from 'react-icons/go'
 
 export default function Home() {
 
@@ -35,7 +35,6 @@ export default function Home() {
   return (
     <Box>
 
-
       <Stack direction='row'>
         <Switch colorScheme='teal' size='lg' onChange={toggleColorMode} />
       </Stack>
@@ -50,17 +49,10 @@ export default function Home() {
           <ButtonComponent value='Saiba mais' marginTop={16} />
         </Box>
 
-
-
-
-
         <Flex w={'100%'} marginTop={36} justifyContent='space-between' alignItems={'center'}>
-
           <Box >
             <TextComponent color='primary' text='Quem somos?' />
-
             <TextComponent text='Lorem ipsum dolor sit amet, consectetur adipiscing elit' fontSize='3xl' />
-
             <TextComponent text='Lorem ipsum dolor sit amet, consectetur adipiscing elit' fontSize='3xl' />
             <TextComponent
               marginTop={6}
@@ -69,7 +61,6 @@ export default function Home() {
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br />
               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
             />
-
           </Box>
 
           <Image
@@ -80,45 +71,83 @@ export default function Home() {
           />
         </Flex>
 
-        <Flex marginTop={32} marginBottom={32} alignItems='center' alignContent={'center'} justifyItems={'center'} justifyContent='center' flexDirection={'column'}>
-          <TextComponent text="Oque fazemos?" fontSize='5xl' />
+        <Flex marginTop={32} marginBottom={32} alignItems='center' justifyItems={'center'} flexDirection={'column'}>
+          <TextComponent text="Oque fazemos?" fontSize='5xl' borderBottomColor='green' borderBottomWidth={5} />
           <TextComponent text="Lorem ipsum is placeholder text commonly used in the graphic,<br /> print, and publishing industries for previewing layouts and visual mockups." fontSize='3xl' />
 
-          <ButtonGroup alignContent={'center'} alignSelf={'center'} marginTop={16}>
-            <ButtonComponent value='Quero ajudar' onClick={() => handleOpenSubscriptionForm()} />
-
-            <ButtonComponent value='Doar para o projeto' onClick={() => console.log("DOANDO!")} />
-          </ButtonGroup>
         </Flex>
 
-        <Slider {...settings} arrows={true}>
-          <Box width={400} height={400} backgroundColor='blue'>
+        <Flex marginTop={32} justifyContent='center' flexDirection={'column'} alignItems='center'>
+          <TextComponent text='RESULTADOS DE IMPACTO' fontWeight='bold' fontSize='xl' />
 
-          </Box>
+          <Flex w={'100%'} flexDir='row' paddingTop={16} justifyContent='space-evenly'>
+            <Flex flexDir={'row'} alignItems='center'>
+              <TextComponent text='800' fontWeight='bold' fontSize='6xl' />
+              <Icon as={GoPlus} w={10} h={10} color='#FFCB14' />
+              <TextComponent text=' faculdades atentidas' fontSize='3xl' />
+            </Flex>
 
-          <Box width={400} height={400} backgroundColor='red'>
+            <Flex flexDir={'row'} alignItems='center'>
+              <TextComponent text='100' fontWeight='bold' fontSize='6xl' />
+              <Icon as={BsPercent} w={10} h={10} color='#FFCB14' />
+              <TextComponent text='aproveitamento' fontSize='3xl' />
+            </Flex>
 
-          </Box>
+            <Flex flexDir={'row'} alignItems='center'>
+              <TextComponent text='100' fontWeight='bold' fontSize='6xl' />
+              <Icon as={GoPlus} w={10} h={10} color='#FFCB14' />
+              <TextComponent text='membros' fontSize='3xl' />
+            </Flex>
 
-          <Box width={400} height={400} backgroundColor='yellow'>
+          </Flex>
+        </Flex>
 
-          </Box>
-
-          <Box width={400} height={400} backgroundColor='brown'>
-
-          </Box>
-        </Slider>
-
-        <Flex marginTop={32} marginBottom={32} alignItems='center' alignContent={'center'} justifyItems={'center'} justifyContent='center' flexDirection={'column'}>
-          <Text fontSize='5xl' align={'center'}>
+        <Flex
+          padding={150}
+          marginTop={32}
+          marginBottom={32}
+          alignItems='center'
+          alignContent={'center'}
+          justifyItems={'center'}
+          justifyContent='center'
+          flexDirection={'column'}
+          bg='black'
+          marginLeft={-8}
+          marginRight={-8}
+        >
+          <Text fontSize='5xl' align={'center'} borderBottomWidth={5} borderBottomColor={"yellow"} color='white'>
             Faça parte desse time vocẽ também!
           </Text>
-          <Text align={'center'} fontSize='3xl'>
+          <Text align={'center'} fontSize='2xl' color={'white'}>
             Lorem ipsum is placeholder text commonly used in the graphic,<br /> print, and publishing industries for previewing layouts and visual mockups.
           </Text>
 
           <ButtonComponent value='Estou interessado!' onClick={() => console.log('Estou interessado!')} marginTop={16} />
         </Flex>
+
+
+        <Box paddingBottom={32}>
+          <Slider {...settings} arrows={true}>
+            <Box width={400} height={400} backgroundColor='blue'>
+
+            </Box>
+
+            <Box width={400} height={400} backgroundColor='red'>
+
+            </Box>
+
+            <Box width={400} height={400} backgroundColor='yellow'>
+
+            </Box>
+
+            <Box width={400} height={400} backgroundColor='brown'>
+
+            </Box>
+          </Slider>
+        </Box>
+
+
+
       </Box>
 
       <Box w={'100%'} bg='black' padding={20} alignItems='start'>

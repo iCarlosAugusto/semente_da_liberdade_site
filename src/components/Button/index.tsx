@@ -14,7 +14,7 @@ interface ButtonComponentProps {
 
 function ButtonComponent({ value, ...props }: ButtonComponentProps) {
     return (
-        <ButtonChakra {...props}>
+        <ButtonChakra {...props} colorScheme='green'>
             {value}
         </ButtonChakra>
     );
